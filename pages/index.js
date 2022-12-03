@@ -18,9 +18,10 @@ export default function Home({ data }) {
       <Header title="DICAS" />
       <div className={styles.content}>
         <AddCard />
-        {data.map((tip) => (
+        {data.map((tip, i) => (
           <Card
-            key={tip["dicaId"]}
+            key={i}
+            id={tip["dicaId"]}
             title={tip["titulo"]}
             content={tip["descrição"]}
           />
