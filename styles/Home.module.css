@@ -1,7 +1,4 @@
-.header {
-  background: #333;
-  color: #ddd;
-  font-size: 32px;
-  padding-bottom: 5px;
-  text-align: center;
+.content {
+  display: flex;
+  padding: 5px;
 }
