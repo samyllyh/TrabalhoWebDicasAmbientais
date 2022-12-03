@@ -1,4 +1,5 @@
-.card {
+.form {
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,8 +14,10 @@
   width: 90%;
   margin: 15px 0;
   background: #ddd;
+  font-size: 16px;
   border-radius: 5px;
   padding-bottom: 3px;
+  outline: none;
 }
 
 .text {
@@ -22,8 +25,11 @@
   height: 100%;
   margin: 0 0 15px;
   background: #ddd;
+  font-size: 16px;
+  resize: none;
   border-radius: 5px;
   padding-bottom: 3px;
+  outline: none;
 }
 
 .buttons {
