@@ -13,8 +13,12 @@
   width: 90%;
   margin: 15px 0;
   background: #ddd;
+  font-size: 16px;
+  font-weight: bolder;
   border-radius: 5px;
   padding-bottom: 3px;
+  resize: none;
+  outline: none;
 }
 
 .text {
@@ -24,6 +28,8 @@
   background: #ddd;
   border-radius: 5px;
   padding-bottom: 3px;
+  resize: none;
+  outline: none;
 }
 
 .buttons {

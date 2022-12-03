@@ -8,8 +8,8 @@ export default function Card({ title, content }) {
 
   return (
     <div className={styles.card}>
-      <h2 className={styles.title}>{title}</h2>
-      <p className={styles.text}>{content}</p>
+      <textarea className={styles.title} rows={1} readOnly value={title} />
+      <textarea className={styles.text} readOnly value={content} />
       <div className={styles.buttons}>
         <Button
           color="#a22"
