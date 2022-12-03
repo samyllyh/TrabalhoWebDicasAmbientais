@@ -1,13 +1,26 @@
+import axios from "axios";
 import Button from "../components/button";
 import Router from "next/router";
+import https from "https";
 import styles from "./form.module.css";
 import { useState } from "react";
-
-const goToHome = () => Router.push("/");
 
 export default function Form({ title, content }) {
   const [titleState, setTitle] = useState(title);
   const [contentState, setContent] = useState(content);
+
+  const goToHome = () => Router.push("/");
+
+  const addTip = async () => {
+    const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+    await axios.post(
+      "https://localhost:7181/dicas",
+      { titulo: titleState, descrição: contentState },
+      { httpsAgent }
+    );
+
+    goToHome();
+  };
 
   return (
     <form className={styles.form}>
@@ -26,7 +39,7 @@ export default function Form({ title, content }) {
       />
       <div className={styles.buttons}>
         <Button color="#a22" onClick={goToHome} content="Voltar" />
-        <Button color="#22a" onClick={() => alert("Hello")} content="Salvar" />
+        <Button color="#22a" onClick={addTip} content="Salvar" />
       </div>
     </form>
   );
