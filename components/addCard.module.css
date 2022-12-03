@@ -1,4 +1,4 @@
-.addCard {
+.card {
   width: 250px;
   height: 250px;
   background: #333;
@@ -6,6 +6,6 @@
   border-radius: 5px;
 }
 
-.addCard:hover {
+.card:hover {
   cursor: pointer;
 }
