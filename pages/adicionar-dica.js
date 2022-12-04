@@ -5,7 +5,7 @@ export default function AdicionarDica() {
   return (
     <>
       <Header title="ADICIONAR DICA" />
-      <Form />
+      <Form isAdd={true} />
     </>
   );
 }

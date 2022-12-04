@@ -13,7 +13,7 @@ export default function Card({ id, title, content }) {
   };
 
   const goToUpdatePage = () =>
-    Router.push(`/atualizar-dica?title=${title}&content=${content}`);
+    Router.push(`/atualizar-dica?id=${id}&title=${title}&content=${content}`);
 
   return (
     <div className={styles.card}>

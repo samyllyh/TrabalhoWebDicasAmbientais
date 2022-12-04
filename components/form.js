@@ -5,17 +5,27 @@ import https from "https";
 import styles from "./form.module.css";
 import { useState } from "react";
 
-export default function Form({ title, content }) {
+export default function Form({ id, title, content, isAdd }) {
+  const httpsAgent = new https.Agent({ rejectUnauthorized: false });
   const [titleState, setTitle] = useState(title);
   const [contentState, setContent] = useState(content);
 
   const goToHome = () => Router.push("/");
 
   const addTip = async () => {
-    const httpsAgent = new https.Agent({ rejectUnauthorized: false });
     await axios.post(
       "https://localhost:7181/dicas",
       { titulo: titleState, descrição: contentState },
+      { httpsAgent }
+    );
+
+    goToHome();
+  };
+
+  const updateTip = async () => {
+    await axios.put(
+      `https://localhost:7181/dicas/${id}`,
+      { dicaId: id, titulo: titleState, descrição: contentState },
       { httpsAgent }
     );
 
@@ -39,7 +49,11 @@ export default function Form({ title, content }) {
       />
       <div className={styles.buttons}>
         <Button color="#a22" onClick={goToHome} content="Voltar" />
-        <Button color="#22a" onClick={addTip} content="Salvar" />
+        <Button
+          color="#22a"
+          onClick={isAdd ? addTip : updateTip}
+          content={isAdd ? "Salvar" : "Atualizar"}
+        />
       </div>
     </form>
   );
